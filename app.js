@@ -204,8 +204,8 @@ function prefer_type1_users(user_array){
 //see if peer 0 wants tls or no tls
 function detect_tls_or_not(peer_array){
 	var tls = false;
-	if(peer_array[0] && peer_array[0].api_port_tls){
-		if(!isNaN(peer_array[0].api_port_tls)) tls = true;
+	if(peer_array[1] && peer_array[1].api_port_tls){
+		if(!isNaN(peer_array[1].api_port_tls)) tls = true;
 	}
 	return tls;
 }
@@ -215,7 +215,7 @@ function detect_tls_or_not(peer_array){
 // ==================================
 var options = 	{
 					network:{
-						peers: [peers[0]],																	//lets only use the first peer! since we really don't need any more than 1
+						peers: [peers[1]],																	//lets only use the first peer! since we really don't need any more than 1
 						users: prefer_type1_users(users),													//dump the whole thing, sdk will parse for a good one
 						options: {
 									quiet: true, 															//detailed debug messages on/off true/false
